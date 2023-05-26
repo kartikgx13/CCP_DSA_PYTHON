@@ -1,0 +1,13 @@
+m=int(input())
+a=list(map(int,input().strip().split()))
+n=int(input())
+b=list(map(int,input().strip().split()))
+a.extend(b)
+checkset=set(a)
+seta=set(a)
+setb=set(b)
+interlist=seta.intersection(setb)
+"""list1=list(checkset)
+list2=list(interlist) """
+print(checkset)
+print(interlist)
