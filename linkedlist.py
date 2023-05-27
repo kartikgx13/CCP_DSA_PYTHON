@@ -113,3 +113,29 @@ while True:
         break
     else:
         print("Invalid Choice")
+
+
+"""
+code to delete a key at a given index k
+    count=1
+    if head==None:
+        return -1
+    else:
+        t=t2=head
+        while(t!=None and count!=k):
+            t2=t
+            t=t.next
+            count += 1
+        if t!=None:
+            #if t is head:
+            if t==head:
+                head=head.next
+            elif t.next==None:
+                t2.next=None
+            else:
+                t2.next=t.next
+        else:
+            return -1
+    
+    return head
+"""
