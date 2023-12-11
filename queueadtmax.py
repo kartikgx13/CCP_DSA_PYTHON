@@ -7,11 +7,11 @@ class CreateQueue:
         self.maxSize=maxSize                               
     
     def printQueue(self):
-        if (self.front>self.rear):
+        if (self.front>self.rear): #since intially front = 0 and rear = -1 
             print("Queue is empty")
         else:
             for i in range(0,len(self.queue)):
-                print(self.queue[i])
+                print(self.queue[i]) #we will print the array in normal order only
     
     def enqueue(self):
         if (self.rear==(self.maxSize-1)):

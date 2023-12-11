@@ -2,50 +2,36 @@
 #the array is divided into subarrays until all the subarrays contain a single element
 #then all these subarrays are again combined in such a way that
 #the elements in the subarrays are in sorted manner
-def printSortedArray(arr):
-    for element in arr:
-        print(element,end=" ")
-
 def mergeSort(arr):
-    if len(arr)>1:
-        #dividing the array into two subarrays
-        mid= len(arr)//2
-        L=arr[:mid]       #storing the two subarrays
-        M=arr[mid:]
+    if len(arr)<=1:
+        return arr
+    mid=len(arr)//2
 
-        #calling mergesort recursively
-        mergeSort(L)
-        mergeSort(M)
+    l_half=arr[:mid]
+    r_half=arr[mid:]
+    l_half=mergeSort(l_half)
+    r_half=mergeSort(r_half)
+    return merge(l_half,r_half)
 
-        i=j=k=0
+def merge(left,right):
+    new=[]
+    i,j=0,0
 
-        while i<len(L) and j<len(M):    #copying the smallest element out of the two subarrays into the sorted array
-            if L[i]<M[j]:
-                arr[k]=L[i]
-                i += 1
-            else:
-                arr[k]=M[j]
-                j += 1
-            
-            k += 1
-        
-        #when we run out of elements in either of the subarray copying the remaining elements
-
-        while i<len(L):
-            arr[k]=L[i]
+    while i<len(left) and j<len(right):
+        if left[i]<right[j]:
+            new.append(left[i])
             i += 1
-            k += 1
-        
-        while j<len(M):
-            arr[k]=M[j]
+        else:
+            new.append(right[j])
             j += 1
-            k += 1
+    
+    new.extend(left[i:])
+    new.extend(right[j:])
 
-print("Enter elements of the array:")
-numlist=list(map(int,input().split()))
-print("Before sorting:")
-printSortedArray(numlist)
-print()
-print("After sorting:")
-mergeSort(numlist)
-printSortedArray(numlist)
+    return new
+
+
+
+
+nums=[10,9,8,7,6,5,4,3,2,1]
+print(mergeSort(nums))

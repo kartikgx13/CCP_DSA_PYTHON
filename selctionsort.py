@@ -9,11 +9,9 @@ def selectionSort(arr):
 
         for j in range(i+1,len(arr)):
             if arr[j]<arr[min_ind]:
-                min_ind=j             #this will return the lowest element in the unsorted subarray
+                min_ind=j             #this will return the index of the lowest element in the unsorted subarray
         #swap the lowest element of the array with our original element
-        temp=arr[i]
-        arr[i]=arr[min_ind]
-        arr[min_ind]=temp
+        arr[i],arr[min_ind]=arr[min_ind],arr[i]
 
 print("Enter elements of the array: ")
 numlist=list(map(int,input().split()))

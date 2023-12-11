@@ -11,6 +11,9 @@ class CreateStack:
             print("Stack is empty")
         else:
             for i in range(len(self.stack)-1,-1,-1):
+                #we have to print the array in reverse order to print the stack hence
+                #we started from the end and continued till -1 as it is the initial
+                #value of the top of the stack
                 print(self.stack[i])
     
     def pushElement(self):
